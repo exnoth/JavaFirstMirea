@@ -1,29 +1,51 @@
 package ru.mirea.task6;
 interface Printable
 {
-    public void decision();
-    public void put();
     public void print();
 
-    public void takeout();
 }
 
-class printin implements Printable
+class Book implements Printable
 {
-    public void decision()
+    int code;
+    String author;
+    String title;
+
+    public Book(int code, String author, String title)
     {
-        System.out.println("You chose a picture you want to print.");
+        this.code = code;
+        this.author = author;
+        this.title = title;
     }
-    public void put()
-    {
-        System.out.println("You put some paper in the printer.");
-    }
+
     public void print()
     {
-        System.out.println("The pic is now printing.");
+        System.out.println("The code of the book: "
+                            + this.code + "\n" + "The author of the book: "
+                            + this.author + "\n" + "The title of the book: "
+                            + this.title + "\n");
     }
-    public void takeout()
+
+}
+
+class Shop implements Printable
+{
+    int vendor;
+    int price;
+    String product;
+
+    public Shop(int vendor, int price, String product)
     {
-        System.out.println("Ypu took your printed pic from the printer. Hooray!");
+        this.vendor = vendor;
+        this.price = price;
+        this.product = product;
+    }
+
+    public void print()
+    {
+        System.out.println("The vendor code of the product: "
+                + this.vendor + "\n" + "The price of the product: "
+                + this.product + "\n" + "The name of the product: "
+                + this.product + "\n");
     }
 }
