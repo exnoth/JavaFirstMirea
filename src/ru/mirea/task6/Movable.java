@@ -53,6 +53,11 @@ class MovablePoint implements Movable
     {
         x+=xSpeed;
     }
+
+    public boolean SpeedTest(MovablePoint point)
+    {
+        return (xSpeed == point.xSpeed && ySpeed == point.ySpeed) ? true : false;
+    }
 }
 
 class MovableCircle extends MovablePoint {
@@ -89,5 +94,54 @@ class MovableCircle extends MovablePoint {
     public String toString()
     {
         return super.toString() + "\n" + "The radius is: " + this.radius;
+    }
+}
+
+
+class MovableRectangle implements Movable
+{
+    MovablePoint topLeft;
+    MovablePoint bottomRight;
+
+
+    public MovableRectangle(int x0, int y0, int x1, int y1, int xSpeed, int ySpeed)
+    {
+        this.topLeft = new MovablePoint(x0,y0,xSpeed,ySpeed);
+        this.bottomRight = new MovablePoint(x1,y1,xSpeed,ySpeed);
+
+        if(!topLeft.SpeedTest(bottomRight))
+        {
+            System.out.println("The speed parameters are not equal!");
+        }
+    }
+
+    public void moveLeft()
+    {
+        topLeft.moveLeft();
+        bottomRight.moveLeft();
+    }
+
+    public void moveRight()
+    {
+        topLeft.moveRight();
+        bottomRight.moveRight();
+    }
+
+    public void moveUp()
+    {
+        topLeft.moveUp();
+        bottomRight.moveUp();
+    }
+
+    public void moveDown()
+    {
+        topLeft.moveDown();
+        bottomRight.moveDown();
+    }
+
+    public String toString()
+    {
+        return "THe top left point: " + topLeft.toString() + "\n" +
+                "The bottom right point: " + bottomRight.toString();
     }
 }
