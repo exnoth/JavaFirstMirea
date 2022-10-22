@@ -1,5 +1,7 @@
 package ru.mirea.task8;
 
+import java.util.Scanner;
+
 public class FromAtoB
 {
     public static int recur(int A, int B)
@@ -27,6 +29,10 @@ public class FromAtoB
 
     public static void main(String[] args)
     {
-        recur(10,5);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the nums: ");
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        recur(n,m);
     }
 }
