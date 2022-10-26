@@ -1,4 +1,4 @@
-package ru.mirea.task11;
+package ru.mirea.task10;
 
 public class Student
 {
@@ -66,5 +66,12 @@ public class Student
     public String getGroup()
     {
         return this.group;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "The student: \n" + "The name: " + getName() + ", the surname: " + getSurname() + ", the specialty: "
+                + getSpecialty() + ", the year: " + getYear() + ", the group: " + getGroup();
     }
 }
